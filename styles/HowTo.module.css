@@ -1,0 +1,61 @@
+.container {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    
+  }
+  
+  .header {
+    color: #0070f3; /* Adjust the color to match your branding */
+    margin-bottom: 1rem;
+    text-align: center;
+    color:#f0f4f8;
+
+  }
+  
+  .content {
+    background: #f0f4f8; /* Light background for the content */
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  .highlight {
+    color: #0070f3; /* Highlight color */
+    font-weight: bold;
+  }
+  
+  .link {
+    color: #0070f3;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 1rem;
+    color:#f0f4f8;
+    font-weight: bold;
+
+  }
+
+.statusButton {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 5px;
+    background-color: #f0f4f8; 
+    border: 2px solid #0070f3;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #0070f3;
+  }
+  
+  .statusButton:hover {
+    background-color: black; 
+  }
+  

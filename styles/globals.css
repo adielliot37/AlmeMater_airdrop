@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background: rgb(255, 136, 68);
+    background: radial-gradient(
+        circle,
+        rgb(255, 136, 68),
+        rgb(255, 119, 70),
+        rgb(253, 100, 74),
+        rgb(250, 81, 79),
+        rgb(245, 59, 86),
+        rgb(233, 41, 94),
+        rgb(219, 22, 101),
+        rgb(204, 0, 107),
+        rgb(177, 0, 112),
+        rgb(148, 0, 114),
+        rgb(116, 0, 114),
+        rgb(82, 7, 111)
+    ) 0px 0px / 350%;
+    min-height: 100vh;
+}
