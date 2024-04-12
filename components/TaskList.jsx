@@ -464,7 +464,7 @@ const TaskList = () => {
               <td className="px-8 py-4">
                 {isConnected ? (
                   <button
-                    className="px-4 py-2 bg-blue-500 text-white font-bold rounded-full hover:bg-blue-700 transition duration-300"
+                    className="px-4 py-2 bg-black text-white font-bold rounded-full hover:bg-pink-600 transition duration-300"
                     onClick={() => claimPoints(row.key, row.actionLink)}
                   >
                     {status[row.key]}

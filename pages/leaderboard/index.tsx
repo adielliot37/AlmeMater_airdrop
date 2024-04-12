@@ -96,7 +96,7 @@ const Leaderboard = () => {
                     </thead>
                     <tbody>
                         {isConnected && connectedUserData && (
-                            <tr className="bg-pink-400 text-white text-[18px]" key={connectedUserData.address}>
+                            <tr className="bg-violet-400 text-white text-[18px]" key={connectedUserData.address}>
                                 <td className="px-8 py-4">{userRanking}</td>
                                 <td className="px-8 py-4">You</td>
                                 <td className="px-8 py-4">{connectedUserData.totalPts}</td>

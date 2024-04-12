@@ -41,7 +41,7 @@ const Card3 = () => {
         </p>
         <button
           onClick={handleReloadPoints}
-          className="text-white bg-blue-500 hover:bg-blue-700 transition-colors cursor-pointer rounded-full p-2"
+          className="text-white bg-black hover:bg-pink-700 transition-colors cursor-pointer rounded-full p-2"
           title="Reload Points"
         >
           <RefreshCw size={24} /> {/* Using React-Feather icon */}
@@ -54,7 +54,7 @@ const Card3 = () => {
             behavior: "smooth",
           })
         }
-        className="text-black-300 hover:text-black-500 transition-colors cursor-pointer"
+        className="text-black-300 hover:text-pink-500 transition-colors cursor-pointer"
       >
         Earn More Alme Points →
       </button>
