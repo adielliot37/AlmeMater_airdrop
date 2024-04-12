@@ -96,7 +96,7 @@ const Leaderboard = () => {
                     </thead>
                     <tbody>
                         {isConnected && connectedUserData && (
-                            <tr className="bg-blue-500 text-white text-[18px]" key={connectedUserData.address}>
+                            <tr className="bg-pink-400 text-white text-[18px]" key={connectedUserData.address}>
                                 <td className="px-8 py-4">{userRanking}</td>
                                 <td className="px-8 py-4">You</td>
                                 <td className="px-8 py-4">{connectedUserData.totalPts}</td>
@@ -106,7 +106,7 @@ const Leaderboard = () => {
                         {topData.map((row, index) => {
                             if (row.address === connectedAddress) return null; // Don't repeat the connected user
                             return (
-                                <tr className="bg-inherit text-white text-[18px]" key={row.address}>
+                                <tr className="bg-inherit text-black text-[18px]" key={row.address}>
                                     <td className="px-8 py-4">{index + 1}</td>
                                     <td className="px-8 py-4">{row.address}</td>
                                     <td className="px-8 py-4">{row.totalPts}</td>
