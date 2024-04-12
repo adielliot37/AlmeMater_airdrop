@@ -56,7 +56,7 @@ const rows = [
 function renderDescription(description, link) {
   return (
     <>
-      {description} {link && <span><strong><a href={link} target="_blank" rel="noopener noreferrer" className="text-white hover:underline">Join here</a></strong></span>}
+      {description} {link && <span><strong><a href={link} target="_blank" rel="noopener noreferrer" className="text-black hover:underline">Join here</a></strong></span>}
     </>
   );
 }
