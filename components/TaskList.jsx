@@ -23,12 +23,26 @@ const rows = [
   },
   {
     key: 3,
-    Quest: "Mint the Alme Points Genesis NFT",
+    Quest: "NFT 1",
     Points: "100 Alme Points",
-    de1:"Free mint on Base",
+    de1:"Free mint on Polygon",
   },
+
   {
     key: 4,
+    Quest: " NFT 2",
+    Points: "100 Alme Points",
+    de1:"Free mint on Polygon",
+  },
+
+  {
+    key: 5,
+    Quest: "NFT 3",
+    Points: "100 Alme Points",
+    de1:"Free mint on Polygon",
+  },
+  {
+    key: 6,
     Quest: "HODL the Alme Points Genesis NFT",
     Points: "10 Alme Points",
 
@@ -37,19 +51,13 @@ const rows = [
   },
 
   {
-    key: 5,
+    key: 7,
     Quest: "Subscribe to our Alme Newsletter",
     Points: "250 Alme Points",
     de1: "Takes under 1 minute",
   },
 
-  {
-    key: 6,
-    Quest: "Hold Founders of ZoWorld NFTs",
-    Points: "200 Alme Points",
-    de1: "Earn 200 Points/NFT by connecting your ZoWorld wallet. Dive in!",
-    de2: "per NFT",
-  },
+
   
 ];
 
@@ -136,8 +144,10 @@ const TaskList = () => {
     2: "say /gm on Discord",
     3: "Claim Points",
     4: "Claim Points",
-    5: "Subscribe",
+    5: "Claim Points",
     6: "Claim Points",
+    7: "Subscribe",
+   
   });
   const [showMintModal, setShowMintModal] = useState(false);
 
@@ -294,7 +304,69 @@ const TaskList = () => {
         }
         break;
 
-      case 4:
+
+        case 4:
+        if (userData.nft_minted_claim) {
+          setStatus((oldVal) => ({ ...oldVal, 3: "Already Claimed" }));
+          console.log("Already Minted");
+
+          return;
+        } else if (await check_nft_ownership(address)) {
+          await fetch("/api/user/update", {
+            method: "POST",
+            body: JSON.stringify({
+              address: address,
+              nft_minted_claim: true,
+              totalPts: userData.totalPts + 100,
+            }),
+            headers: {
+              Accept: "*/*",
+              "Content-Type": "application/json",
+            },
+          });
+          console.log("Already minted adding points");
+
+          setStatus((oldVal) => ({ ...oldVal, 3: "Points Claimed" }));
+          return;
+        } else {
+          console.log("Minting NFT");
+          setShowMintModal(true); // Open the mint modal
+          return;
+        }
+        break;
+
+
+        case 5:
+        if (userData.nft_minted_claim) {
+          setStatus((oldVal) => ({ ...oldVal, 3: "Already Claimed" }));
+          console.log("Already Minted");
+
+          return;
+        } else if (await check_nft_ownership(address)) {
+          await fetch("/api/user/update", {
+            method: "POST",
+            body: JSON.stringify({
+              address: address,
+              nft_minted_claim: true,
+              totalPts: userData.totalPts + 100,
+            }),
+            headers: {
+              Accept: "*/*",
+              "Content-Type": "application/json",
+            },
+          });
+          console.log("Already minted adding points");
+
+          setStatus((oldVal) => ({ ...oldVal, 3: "Points Claimed" }));
+          return;
+        } else {
+          console.log("Minting NFT");
+          setShowMintModal(true); // Open the mint modal
+          return;
+        }
+        break;
+
+      case 6:
         if (!(await check_nft_ownership(address))) {
           setStatus((oldVal) => ({ ...oldVal, 4: "Mint UD NFT First" }));
           return;
@@ -342,7 +414,7 @@ const TaskList = () => {
       default:
         break;
 
-      case 5:
+      case 7:
         if (isConnected) {
           if (userData && userData.emailAdded) {
             // If emailAdded is true, it means the user has already subscribed and claimed the points
@@ -354,47 +426,7 @@ const TaskList = () => {
         }
         break;
 
-      case 6:
-        // Inside your existing claimPoints function, for case 6
-        const ZoBal = userData.ZoBalance ;
-        if (userData.ZoNFTclaimed) {
-          setStatus((oldVal) => ({
-            ...oldVal,
-            6: `Claimed Points (${ZoBal} NFTs)`,
-          }));
-          return;
-        }
-
-        const zoNFTBalance = await check_nft_ownership1(address);
-        if (zoNFTBalance === 0) {
-          setStatus((oldVal) => ({ ...oldVal, 6: "You don't hold ZoWorldNFT" }));
-          return;
-        } else {
-          // Calculate points based on the actual balance
-          const pointsToAdd = 200 * zoNFTBalance;
-          await fetch("/api/user/update", {
-            method: "POST",
-            body: JSON.stringify({
-              address: address,
-              ZoNFTclaimed: true,
-              totalPts: userData.totalPts + pointsToAdd,
-              ZoBalance: zoNFTBalance,
-
-            }),
-            headers: {
-              Accept: "*/*",
-              "Content-Type": "application/json",
-            },
-          });
-          
-          setStatus((oldVal) => ({
-            ...oldVal,
-            6: `Claimed Points (${ZoBal} NFTs)`,
-          }));
-          return;
-        }
-
-        break;
+     
     }
   };
 
@@ -427,7 +459,7 @@ const TaskList = () => {
               </td>
               <td className="px-8 py-4">
                 {row.Points}
-                <div className="px-1 text-white text-[12px]">{row.de2}</div>
+                <div className="px-1 text-black text-[12px]">{row.de2}</div>
               </td>
               <td className="px-8 py-4">
                 {isConnected ? (
