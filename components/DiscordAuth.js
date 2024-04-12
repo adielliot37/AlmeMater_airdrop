@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const CLIENT_ID = '1228231740750041121';
-const REDIRECT_URI = 'http://localhost:3000/';
+const REDIRECT_URI = 'https://alme-mater-airdrop.vercel.app/';
 const SCOPE = 'identify+guilds';
 const TARGET_SERVER_ID = '1214577209159716884'; // Replace with the actual server ID
 const TARGET_SERVER_NAME = 'test'; // Replace with the actual server ID
